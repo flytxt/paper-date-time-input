@@ -192,7 +192,6 @@ Polymer({
     var calendar = this.$.datePicker.$.calendar;
     if (!this.disableTime) {
       this.set('_time', calendar.dateFormat(date, this._getTimeFormat()));
-      this._setTime();
     }
     return calendar.dateFormat(date, this.dateFormat);
   },
@@ -237,7 +236,7 @@ Polymer({
   _setTime: function() {
     var me = this;
     if (!me._time) { return; }
-    var date = me._getDate();
+    var date = new Date(me._getDate());
     if (me._isNumber(me._hour)) {
       date.setHours(me._hour);
       me.set('hour', me._hour);
