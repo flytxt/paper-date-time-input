@@ -167,9 +167,7 @@ Polymer({
       }
     } else if (this._isDate(date)) {
       this.set('_date', date);
-      if (!this.time) {
-        this.set('time', this.$.datePicker.$.calendar.dateFormat(date, this._getTimeFormat()));
-      }
+      this.set('time', this.$.datePicker.$.calendar.dateFormat(date, this._getTimeFormat()));
     }
   },
 
