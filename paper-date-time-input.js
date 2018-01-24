@@ -156,7 +156,17 @@ Polymer({
     cancelText: {
       type: String,
       value: 'Cancel'
-    }
+    },
+
+    /**
+		 * The locale used for date and time formatting.
+		 */
+		locale: {
+			type: String,
+			value: function() {
+				return moment.locale();
+			}
+		}
   },
 
   _setDatePicker: function(date) {

@@ -22,6 +22,7 @@
     "_": true,
     "sinon": true,
     "expect": true,
-    "WCT": true
+    "WCT": true,
+    "moment": true
   }
 }
