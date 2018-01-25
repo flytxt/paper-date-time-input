@@ -63,7 +63,7 @@ Custom property | Description | Default
             auto-validate$="[[autoValidate]]" invalid="{{invalid}}" error-message="[[errorMessage]]" on-tap="_showTimeDialog"></paper-input>
       </template>
     </div>
-    <paper-dialog id="dateDialog" class="paper-date-picker-dialog" modal> ---- locale : [[locale]]
+    <paper-dialog id="dateDialog" class="paper-date-picker-dialog" modal>
       <paper-date-picker id="datePicker" date="{{ _date }}" tz-date="{{ tzDate }}" locale="[[locale]]"></paper-date-picker>
       <div class="buttons">
         <paper-button dialog-dismiss>[[ cancelText ]]</paper-button>
