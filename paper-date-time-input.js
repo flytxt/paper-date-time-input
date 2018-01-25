@@ -164,7 +164,7 @@ Polymer({
 		locale: {
 			type: String,
 			value: function() {
-				return localStorage.locales ? JSON.parse(localStorage.locales).locale : moment.locale();
+				return document.cookie.includes('locales') ? app.getLocale('locales').locale : moment.locale();
 			}
 		}
   },

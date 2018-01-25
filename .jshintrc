@@ -23,6 +23,7 @@
     "sinon": true,
     "expect": true,
     "WCT": true,
-    "moment": true
+    "moment": true,
+    "app": true
   }
 }
