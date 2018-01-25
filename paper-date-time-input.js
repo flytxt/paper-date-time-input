@@ -164,7 +164,7 @@ Polymer({
 		locale: {
 			type: String,
 			value: function() {
-				return moment.locale();
+				return localStorage.locales ? JSON.parse(localStorage.locales).locale : moment.locale();
 			}
 		}
   },
