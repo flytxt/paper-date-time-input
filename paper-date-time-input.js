@@ -59,7 +59,7 @@ Polymer({
      */
     dateFormat: {
       type: String,
-      value: 'YYYY-MM-DD'
+      value: 'DD MMM YYYY'
     },
 
     /**
@@ -216,7 +216,7 @@ Polymer({
   },
 
   _getTimeFormat: function() {
-    return this.timeFormat || (this.enableSeconds ? 'h:mm:ss A' : 'h:mm A');
+    return this.timeFormat || (this.enableSeconds ? 'hh:mm:ss A' : 'hh:mm A');
   },
 
   _getDate: function() {
