@@ -56,11 +56,11 @@ Custom property | Description | Default
     <div class="container">
       <template is="dom-if" if="[[ !disableDate ]]">
         <paper-input class="date" label="[[ labelDate ]]" value="[[ _formatDate(date) ]]" class="flex" readonly required$="[[required]]"
-            auto-validate$="[[autoValidate]]" invalid="{{invalid}}" error-message="[[errorMessage]]" on-tap="_showDateDialog"></paper-input>
+            auto-validate$="[[autoValidate]]" invalid="{{invalid}}" error-message="[[errorMessage]]" on-tap="_showDateDialog" title="[[ titleDate ]]"></paper-input>
       </template>
       <template is="dom-if" if="[[ !disableTime ]]">
         <paper-input class="time" label="[[ labelTime ]]" value="{{ time }}" class="flex" readonly required$="[[required]]"
-            auto-validate$="[[autoValidate]]" invalid="{{invalid}}" error-message="[[errorMessage]]" on-tap="_showTimeDialog"></paper-input>
+            auto-validate$="[[autoValidate]]" invalid="{{invalid}}" error-message="[[errorMessage]]" on-tap="_showTimeDialog" title="[[ titleTime ]]"></paper-input>
       </template>
     </div>
     <paper-dialog id="dateDialog" class="paper-date-picker-dialog" modal>
