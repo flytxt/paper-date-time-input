@@ -59,7 +59,10 @@ Polymer({
      */
     dateFormat: {
       type: String,
-      value: 'DD MMM YYYY'
+      value: function(){
+        return document.cookie.includes('locales') ? app.getLocale('locales').dateFormat : 'DD MMM YYYY';
+      }
+      // value: 'DD MMM YYYY'
     },
 
     /**
@@ -107,7 +110,7 @@ Polymer({
     /**
      * The format to apply when displaying in the time input field
      */
-    timeFormat: String,
+     timeFormat: String,
 
     /**
      * The current 24-hour value (0-24)
