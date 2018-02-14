@@ -59,7 +59,10 @@ Polymer({
      */
     dateFormat: {
       type: String,
-      value: 'YYYY-MM-DD'
+      value: function(){
+        return document.cookie.includes('locales') ? app.getLocale('locales').dateFormat : 'DD MMM YYYY';
+      }
+      // value: 'DD MMM YYYY'
     },
 
     /**
@@ -107,7 +110,7 @@ Polymer({
     /**
      * The format to apply when displaying in the time input field
      */
-    timeFormat: String,
+     timeFormat: String,
 
     /**
      * The current 24-hour value (0-24)
@@ -156,7 +159,17 @@ Polymer({
     cancelText: {
       type: String,
       value: 'Cancel'
-    }
+    },
+
+    /**
+		 * The locale used for date and time formatting.
+		 */
+		locale: {
+			type: String,
+			value: function() {
+				return document.cookie.includes('locales') ? app.getLocale('locales').locale : moment.locale();
+			}
+		}
   },
 
   _setDatePicker: function(date) {
@@ -206,7 +219,7 @@ Polymer({
   },
 
   _getTimeFormat: function() {
-    return this.timeFormat || (this.enableSeconds ? 'h:mm:ss A' : 'h:mm A');
+    return this.timeFormat || (this.enableSeconds ? 'hh:mm:ss A' : 'hh:mm A');
   },
 
   _getDate: function() {

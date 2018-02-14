@@ -64,7 +64,7 @@ Custom property | Description | Default
       </template>
     </div>
     <paper-dialog id="dateDialog" class="paper-date-picker-dialog" modal>
-      <paper-date-picker id="datePicker" date="{{ _date }}" tz-date="{{ tzDate }}"></paper-date-picker>
+      <paper-date-picker id="datePicker" date="{{ _date }}" tz-date="{{ tzDate }}" locale="[[locale]]"></paper-date-picker>
       <div class="buttons">
         <paper-button dialog-dismiss>[[ cancelText ]]</paper-button>
         <paper-button dialog-confirm on-tap="_setDate">[[ okText ]]</paper-button>
@@ -72,7 +72,7 @@ Custom property | Description | Default
     </paper-dialog>
     <paper-dialog id="timeDialog" modal class="paper-time-picker-dialog">
       <paper-time-picker id="timePicker" hour="{{ _hour }}" minute="{{ _minute }}" second="{{ _second }}"
-          time="{{ _time }}" enable-seconds="[[ enableSeconds ]]"></paper-time-picker>
+          time="{{ _time }}" enable-seconds="[[ enableSeconds ]]" locale="[[locale]]"></paper-time-picker>
       <div class="buttons">
         <paper-button dialog-dismiss>[[ cancelText ]]</paper-button>
         <paper-button dialog-confirm on-tap="_setTime">[[ okText ]]</paper-button>
