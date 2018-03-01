@@ -60,7 +60,7 @@ Polymer({
     dateFormat: {
       type: String,
       value: function(){
-        return document.cookie.includes('locales') ? app.getLocale('locales').dateFormat : 'DD MMM YYYY';
+        return app && app.localeObj ? app.localeObj.dateFormat : 'DD MMM YYYY';
       }
       // value: 'DD MMM YYYY'
     },
@@ -167,7 +167,7 @@ Polymer({
 		locale: {
 			type: String,
 			value: function() {
-				return document.cookie.includes('locales') ? app.getLocale('locales').locale : moment.locale();
+				return app && app.localeObj ? app.localeObj.locale : moment.locale();
 			}
 		}
   },
