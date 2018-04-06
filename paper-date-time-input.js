@@ -162,14 +162,14 @@ Polymer({
     },
 
     /**
-		 * The locale used for date and time formatting.
-		 */
-		locale: {
-			type: String,
-			value: function() {
-				return app && app.localeObj ? app.localeObj.locale : moment.locale();
-			}
-		}
+     * The locale used for date and time formatting.
+     */
+    locale: {
+        type: String,
+        value: function() {
+            return app && app.localeObj ? app.localeObj.locale : moment.locale();
+        }
+    }
   },
 
   _setDatePicker: function(date) {
@@ -190,11 +190,24 @@ Polymer({
     }
   },
 
+  _toggleOverlay: function(dialog) {
+    if (!dialog.opened) {
+      this.overlay = document.querySelector('iron-overlay-backdrop');
+      if (this.overlay && this.overlay.opened) {
+        this.insertBefore(this.overlay, dialog);
+      }
+    } else {
+      this._cancel();
+    }
+  },
+
   _showDateDialog: function() {
+    this._toggleOverlay(this.$.dateDialog);
     this.$.dateDialog.toggle();
   },
 
   _showTimeDialog: function() {
+    this._toggleOverlay(this.$.timeDialog);
     this.$.timeDialog.toggle();
   },
 
@@ -234,6 +247,11 @@ Polymer({
     return date;
   },
 
+  _saveDate: function() {
+    this._setDate();
+    this._toggleOverlay(this.$.dateDialog);
+  },
+
   _setDate: function() {
     var me = this;
     if (me._isDate(me._date)) {
@@ -242,6 +260,11 @@ Polymer({
       date.setMonth(me._date.getMonth(), me._date.getDate());//Fix late day of month issue
       me.set('date', date);
     }
+  },
+
+  _saveTime: function() {
+    this._setTime();
+    this._toggleOverlay(this.$.timeDialog);
   },
 
   _setTime: function() {
@@ -274,5 +297,21 @@ Polymer({
 
   _isNumber: function(number) {
     return typeof number === 'number';
+  },
+
+  _cancel: function() {
+    if (this.overlay) {
+      document.querySelector('body').appendChild(this.overlay);
+    }
+  },
+
+  cancelTime: function() {
+    this._cancel();
+    this.$.timeDialog.close();
+  },
+
+  cancelDate: function() {
+    this._cancel();
+    this.$.dateDialog.close();
   }
 });
