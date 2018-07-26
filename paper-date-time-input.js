@@ -170,6 +170,20 @@ Polymer({
         value: function() {
             return app && app.localeObj ? app.localeObj.locale : moment.locale();
         }
+    },
+    /**
+     * prop for overlay
+     */
+    dissolve: {
+      type: Boolean,
+      value: false
+    },
+    /**
+     * prop for text field disabled
+     */
+    disabled: {
+      type: Boolean,
+      value: false
     }
   },
 
@@ -194,7 +208,7 @@ Polymer({
   _toggleOverlay: function(dialog) {
     if (!dialog.opened) {
       this.overlay = document.querySelector('iron-overlay-backdrop');
-      if (this.overlay && this.overlay.opened) {
+      if (this.overlay && this.overlay.opened && !this.dissolve) {
         this.insertBefore(this.overlay, dialog);
       }
     } else {
