@@ -164,6 +164,7 @@ Polymer({
     /**
      * The locale used for date and time formatting.
      */
+
     locale: {
         type: String,
         value: function() {
